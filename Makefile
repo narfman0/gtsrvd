@@ -34,14 +34,11 @@ init-dev:
 init-test:
 	pipenv sync -d
 
-lint: ## check style with flake8
-	flake8 gtsrvd tests
-
 run-dev:
 	pipenv run gtsrvd.app
 
 run-test:
-	pipenv run pytest --cov=gtsrvd --flake8
+	pipenv run pytest --cov=gtsrvd --flake8 --cov-report term-missing
 
 d: run-dev
 dev: init-dev run-dev

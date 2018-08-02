@@ -43,7 +43,7 @@ def delete_record(zone_id, name):
     :param string zone_id: id for domain, e.g. blastedstudios.com.
     :param string name: subdomain name
     """
-    hange_record(zone_id, name, get_ip(), "DELETE")
+    change_record(zone_id, name, get_ip(), "DELETE")
 
 
 def get_ip():
