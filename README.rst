@@ -51,6 +51,7 @@ TODO
 
 * Create script to add route53 route and proxy
 * Add paramiko server to auto route & proxy logic
+  * Optional: Grab subdomain by username..? (might run command on ssh instead)
 * Treat forwarding ssh like the special snowflake it is
 * Possibly treat port 80 uniquelly, possible forcing (via cli arg) ssl
 * Add ansible/docker support
