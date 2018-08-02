@@ -28,13 +28,22 @@ clean-pyc: ## remove Python file artifacts
 	find . -name '__pycache__' -exec rm -rf {} +
 	find . -name '*~' -exec rm -f {} +
 
+init-dev:
+	pipenv sync
+
+init-test:
+	pipenv sync -d
+
 lint: ## check style with flake8
 	flake8 gtsrvd tests
 
-dev:
-	pipenv sync
+run-dev:
 	pipenv run gtsrvd.app
 
-test: ## run tests quickly with the default Python
-	pipenv sync -d
+run-test:
 	pipenv run pytest --cov=gtsrvd --flake8
+
+d: run-dev
+dev: init-dev run-dev
+t: run-test
+test: init-test run-test

@@ -1,7 +1,7 @@
 gtsrvd
 ======
 
-WIP
+WIP - currently focused on aws
 
 Ever want to host a localhost server on the public internet, but
 can't easily or conveniently punch through your NAT? Yes, that aspect of the
@@ -49,7 +49,8 @@ this, possibly an ansible config and docker container.
 TODO
 ----
 
-* Add paramiko server to auto-add new route53 routes and proxy
+* Create script to add route53 route and proxy
+* Add paramiko server to auto route & proxy logic
 * Treat forwarding ssh like the special snowflake it is
 * Possibly treat port 80 uniquelly, possible forcing (via cli arg) ssl
 * Add ansible/docker support
