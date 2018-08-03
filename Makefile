@@ -28,19 +28,18 @@ clean-pyc: ## remove Python file artifacts
 	find . -name '__pycache__' -exec rm -rf {} +
 	find . -name '*~' -exec rm -f {} +
 
-init-dev:
+init:
 	pipenv sync
 
 init-test:
 	pipenv sync -d
 
-run-dev:
-	pipenv run gtsrvd.app
+release: clean
+	python setup.py sdist upload
+	python setup.py bdist_wheel upload
 
 run-test:
 	pipenv run pytest --cov=gtsrvd --flake8 --cov-report term-missing
 
-d: run-dev
-dev: init-dev run-dev
 t: run-test
 test: init-test run-test
