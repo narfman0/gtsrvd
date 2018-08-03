@@ -23,5 +23,10 @@ setup(
     install_requires=["boto3", "requests", "click"],
     zip_safe=True,
     test_suite="tests",
-    entry_points={"console_scripts": ["gtsrvd=gtsrvd.cli"]},
+    entry_points={
+        "console_scripts": [
+            "gtsrvd-create=gtsrvd.cli:create",
+            "gtsrvd-delete=gtsrvd.cli:delete",
+        ]
+    },
 )
