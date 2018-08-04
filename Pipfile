@@ -9,10 +9,7 @@ requests = "*"
 click = "*"
 
 [dev-packages]
+"flake8" = "*"
 pytest = "*"
 pytest-cov = "*"
 "pytest-flake8" = "*"
-"flake8" = "*"
-
-[requires]
-python_version = "3.6"

@@ -29,10 +29,10 @@ clean-pyc: ## remove Python file artifacts
 	find . -name '*~' -exec rm -f {} +
 
 init:
-	pipenv sync
+	pipenv install --skip-lock
 
 init-test:
-	pipenv sync -d
+	pipenv install -d --skip-lock
 
 release: clean
 	python setup.py sdist upload

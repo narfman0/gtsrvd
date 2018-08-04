@@ -113,3 +113,9 @@ venv.bak/
 node_modules/
 package-lock.json
 template.yml
+
+# pipenv barfs on invalid setup.pys, like pytest, and in conjunction with
+# pytest-cov and pytest-flake8, fails to generate valid lockfile. Thus, we skip
+# and regenerate whenver we install, subverting a big point of pipenv in the first
+# place. Awesome.
+Pipfile.lock
