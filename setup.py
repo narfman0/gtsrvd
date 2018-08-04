@@ -8,8 +8,6 @@ setup(
     classifiers=[
         "Development Status :: 4 - Beta",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-        "License :: OSI Approved :: MIT",
-        "License :: OSI Approved :: Whatever I really dont care what you do",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
     ],
