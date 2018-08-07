@@ -10,6 +10,7 @@ METADATA_IP_URL = METADATA_URL + "public-ipv4/"
 def change_record(domain, subdomain, target_ip, action, ttl=900):
     """ Change the record for subdomain """
     zone_id = get_hosted_zone_id(domain)
+    name = subdomain + "." + domain
     client.change_resource_record_sets(
         HostedZoneId=zone_id,
         ChangeBatch={
@@ -18,7 +19,7 @@ def change_record(domain, subdomain, target_ip, action, ttl=900):
                 {
                     "Action": action,
                     "ResourceRecordSet": {
-                        "Name": subdomain,
+                        "Name": name,
                         "Type": "A",
                         "ResourceRecords": [{"Value": target_ip}],
                         "TTL": ttl,
