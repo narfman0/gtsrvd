@@ -11,7 +11,7 @@ from gtsrvd import app
 @click.option("--port", default=80, help="Target port to proxy to")
 def create(domain, subdomain, port):
     """ Create proxy to localhost on port. Will add dns record to domain. """
-    app.create(domain, subdomain, port)
+    app.create(domain, subdomain, int(port))
 
 
 @click.command()
@@ -20,4 +20,4 @@ def create(domain, subdomain, port):
 @click.option("--port", default=80, help="Target port to proxy to")
 def delete(domain, subdomain, port):
     """ Delete proxy to localhost on port. Will remove dns record from domain. """
-    app.delete(domain, subdomain, port)
+    app.delete(domain, subdomain, int(port))

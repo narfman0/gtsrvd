@@ -19,22 +19,27 @@ host content to the public internetz. How is this? Well firstly, you do it,
 we just automate it :). You host a box (ec2?) on your favorite cloud provider,
 run what should be a broadly well known ssh command, and you win!
 
+Installation
+============
+
+Currently we rely on nginx, so install and start that service. Then::
+
+    pip install gtsrvd
+
 Getting started
 ===============
 
 You'll need your cloud provider keys set up so the daemon can acquire
-subdomains and route properly. Assuming a domain of `blastedstudios.com`
-and ssh'd to an ec2 instance with hostname `publicbox` and happy dns set up
-already, from publicbox (with public port 80) run::
-
-    pipenv install
-    DOMAIN=blastedstudios.com pipenv run gtsrvd.app
-
-Then from any hapless host (behind NAT, for maximum effect), run::
+subdomains and route properly. Assuming a domain of `blastedstudios.com`,
+from hapless host (behind NAT) connect to `publicbox` with::
 
     ssh -R 8080:localhost:80 gtrkt@publicbox.blastedstudios.com
 
-This should create a domain gtrkt.blastedstudios.com, then traffic will
+from publicbox (with public port 80) run::
+
+    gtsrvd-create --domain blastedstudios.com --subdomain test1 --port 8080
+
+This should create a subdomain gtrkt.blastedstudios.com, then traffic will
 flow to your proxy box over ssh to your localhost. What a winner.
 
 Testing
@@ -55,7 +60,6 @@ this, possibly an ansible config and docker container.
 TODO
 ----
 
-* Create script to add route53 route and proxy
 * Add paramiko server to auto route & proxy logic
   * Optional: Grab subdomain by username..? (might run command on ssh instead)
 * Treat forwarding ssh like the special snowflake it is
