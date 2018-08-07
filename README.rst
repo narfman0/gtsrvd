@@ -7,8 +7,6 @@ gtsrvd
 .. image:: https://travis-ci.org/narfman0/gtsrvd.png?branch=master
     :target: https://travis-ci.org/narfman0/gtsrvd
 
-WIP - currently focused on aws
-
 Ever want to host a localhost server on the public internet, but
 can't easily or conveniently punch through your NAT? Yes, that aspect of the
 future is broken. OR IS IT..?!
