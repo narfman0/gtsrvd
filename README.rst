@@ -31,13 +31,13 @@ You'll need your cloud provider keys set up so the daemon can acquire
 subdomains and route properly. Assuming a domain of `blastedstudios.com`,
 from hapless host (behind NAT) connect to `publicbox` with::
 
-    ssh -R 8080:localhost:80 gtrkt@publicbox.blastedstudios.com
+    ssh -R 8080:localhost:80 publicbox.blastedstudios.com
 
 from publicbox (with public port 80) run::
 
     gtsrvd-create --domain blastedstudios.com --subdomain test1 --port 8080
 
-This should create a subdomain gtrkt.blastedstudios.com, then traffic will
+This should create a subdomain: test1.blastedstudios.com, then traffic will
 flow to your proxy box over ssh to your localhost. What a winner.
 
 Testing
@@ -51,18 +51,17 @@ Deploying
 ---------
 
 Deploy gtsrvd to your cloud box with suitable roles to allow for subdomain
-tweaking. I know you like how it ends in a `d` which implies daemon, so
-hopefully soon I'll include the simplistic systemd unit I've used to automate
-this, possibly an ansible config and docker container.
+tweaking. I know you like how it ends in a `d` which implies daemon; down
+the line I'd like to add a service listening on ssh that handles this
+automatically, then I'll include the simplistic systemd unit I've used to
+automate this, possibly an ansible config and docker container.
 
 TODO
 ----
 
 * Add paramiko server to auto route & proxy logic
   * Optional: Grab subdomain by username..? (might run command on ssh instead)
-* Treat forwarding ssh like the special snowflake it is
-* Possibly treat port 80 uniquelly, possible forcing (via cli arg) ssl
-* Add ansible/docker support
+* Ansible/docker support
 * Support different clouds (gcp/azure)
 
 LICENSE
